@@ -29,6 +29,7 @@ public class RestaurantBackendApplication {
     public CommandLineRunner init() {
         return args -> {
             Category pork = Category.builder().name("Pork").build();
+            Category chicken = Category.builder().name("Chicken").build();
 
             Menu cordonBleu = Menu.builder().name("Cordon Bleu")
                     .picture("https://i.imgur.com/Z8fHDAH.jpg")
@@ -41,11 +42,17 @@ public class RestaurantBackendApplication {
                     .category(pork)
                     .build();
 
+            Menu friedChicken = Menu.builder().name("Fried Chicken")
+                    .picture("https://i.imgur.com/zXZvyga.jpeg")
+                    .price(1800L)
+                    .category(chicken)
+                    .build();
+
             pork.setMenu(Arrays.asList(cordonBleu, friedSteak));
 
-            categoryRepository.save(pork); // Important note: save category first
+            categoryRepository.saveAll(Arrays.asList(pork, chicken)); // Important note: save category first
 
-            menuRepository.saveAll(Arrays.asList(cordonBleu, friedSteak));
+            menuRepository.saveAll(Arrays.asList(cordonBleu, friedSteak, friedChicken));
         };
 
     }
