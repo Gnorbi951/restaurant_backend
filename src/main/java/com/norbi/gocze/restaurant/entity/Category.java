@@ -6,20 +6,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-public class Menu {
+public class Category {
     @Id
     @GeneratedValue
     private Long id;
 
     private String name;
-    private Long price;
-    @ManyToOne
-    private Category category;
-    private String picture;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private List<Menu> menu;
 }
