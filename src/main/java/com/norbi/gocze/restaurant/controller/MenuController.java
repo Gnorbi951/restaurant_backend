@@ -21,15 +21,7 @@ public class MenuController {
 
     private final MenuService menuService;
 
-    @GetMapping("/test")
-    public ResponseObject getBasicMessage() {
-        System.out.println("Request in");
-        return ResponseObject.builder()
-                .message("This is the test string")
-                .build();
-    }
-
-    @GetMapping("/testmenu")
+    @GetMapping("/all")
     public List<Menu> getMenu() {
         return menuService.getAll();
     }
