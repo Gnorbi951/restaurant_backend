@@ -21,9 +21,8 @@ public class MenuController {
         return menuService.getAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get-by-category/{id}")
     public List<Menu> getMenuWhereCategoryMatches(@PathVariable("id") Long id) {
-        System.out.println(id);
         return menuService.getItemsWhereIdMatcher(id);
     }
 }
