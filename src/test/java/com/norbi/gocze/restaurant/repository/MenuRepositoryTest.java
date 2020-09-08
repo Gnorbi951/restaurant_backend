@@ -5,6 +5,8 @@ import com.norbi.gocze.restaurant.entity.Menu;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
@@ -40,7 +42,7 @@ class MenuRepositoryTest {
     }
 
     @Test
-    public void itemsAreInserted() {
+    public void itemsAreInsertedCorrectly() {
         Menu menu1 = Menu.builder()
                 .name("Test Item 1")
                 .build();
@@ -68,7 +70,7 @@ class MenuRepositoryTest {
 
         List<Menu> foundItems = menuRepository.findAllByCategory(category);
 
-        assertThat(foundItems.size()).isEqualTo(1);
+        assertThat(foundItems.get(0).getName()).isEqualTo("Test Menu");
     }
 
 }
