@@ -22,6 +22,6 @@ public class MenuService {
 
     public List<Menu> getItemsWhereIdMatcher(Long id) {
         Category category = categoryRepository.getCategoryById(id);
-        return menuRepository.getItemsWhereCategoryIdMatcher(category);
+        return menuRepository.findAllByCategory(category);
     }
 }

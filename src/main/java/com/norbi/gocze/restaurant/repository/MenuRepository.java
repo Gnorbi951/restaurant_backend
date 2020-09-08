@@ -11,6 +11,9 @@ import java.util.List;
 
 public interface MenuRepository extends JpaRepository<Menu, Long>{
 
-    @Query(value = "select item from Menu item where :category = item.category ")
-    List<Menu> getItemsWhereCategoryIdMatcher(@Param("category")Category category);
+//    @Query(value = "select item from Menu item where :category = item.category ")
+//    List<Menu> getItemsWhereCategoryIdMatcher(@Param("category")Category category);
+
+    @Query
+    List<Menu> findAllByCategory(Category category);
 }

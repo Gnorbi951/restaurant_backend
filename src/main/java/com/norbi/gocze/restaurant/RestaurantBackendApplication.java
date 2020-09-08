@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 @SpringBootApplication
 public class RestaurantBackendApplication {
@@ -51,6 +52,7 @@ public class RestaurantBackendApplication {
                     .build();
 
             pork.setMenu(Arrays.asList(cordonBleu, friedSteak));
+            chicken.setMenu(Collections.singletonList(friedChicken));
 
             categoryRepository.saveAll(Arrays.asList(pork, chicken)); // Important note: save category first
 

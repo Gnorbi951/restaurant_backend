@@ -54,20 +54,19 @@ class MenuRepositoryTest {
 
     @Test
     public void itemsAreFoundByCategoryId() {
-        Menu menu1 = Menu.builder()
-                .name("Test Menu")
-                .build();
         Category category = Category.builder()
                 .name("testCategory")
-                .id(1L)
-                .menu(Collections.singletonList(menu1))
                 .build();
-        menu1.setCategory(category);
+        Menu menu1 = Menu.builder()
+                .name("Test Menu")
+                .category(category)
+                .build();
 
+        category.setMenu(Collections.singletonList(menu1));
         categoryRepository.save(category);
         menuRepository.save(menu1);
 
-        List<Menu> foundItems = menuRepository.getItemsWhereCategoryIdMatcher(category);
+        List<Menu> foundItems = menuRepository.findAllByCategory(category);
 
         assertThat(foundItems.size()).isEqualTo(1);
     }
