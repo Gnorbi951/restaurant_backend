@@ -1,7 +1,6 @@
 package com.norbi.gocze.restaurant.controller;
 
 import com.norbi.gocze.restaurant.entity.Category;
-import com.norbi.gocze.restaurant.repository.CategoryRepository;
 import com.norbi.gocze.restaurant.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
