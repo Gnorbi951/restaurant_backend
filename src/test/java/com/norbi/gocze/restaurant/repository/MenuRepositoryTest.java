@@ -45,6 +45,8 @@ class MenuRepositoryTest {
     public void itemsAreInsertedCorrectly() {
         Menu menu1 = Menu.builder()
                 .name("Test Item 1")
+                .price(20L)
+                .picture("Cat pictures")
                 .build();
         Menu menu2 = Menu.builder()
                 .name("Test Item 2")
@@ -52,6 +54,8 @@ class MenuRepositoryTest {
         menuRepository.saveAll(Arrays.asList(menu1, menu2));
 
         assertThat(menuRepository.findAll().size()).isEqualTo(2);
+        assertThat(menuRepository.findAll().get(0).getPrice()).isEqualTo(20L);
+        assertThat(menuRepository.findAll().get(0).getPicture()).isEqualTo("Cat pictures");
     }
 
     @Test

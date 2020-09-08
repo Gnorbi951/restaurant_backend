@@ -20,7 +20,7 @@ public class MenuService {
         return menuRepository.findAll();
     }
 
-    public List<Menu> getItemsWhereIdMatcher(Long id) {
+    public List<Menu> getItemsWhereIdMatches(Long id) {
         Category category = categoryRepository.getCategoryById(id);
         return menuRepository.findAllByCategory(category);
     }

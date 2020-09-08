@@ -2,6 +2,7 @@ package com.norbi.gocze.restaurant.controller;
 
 import com.norbi.gocze.restaurant.entity.Category;
 import com.norbi.gocze.restaurant.repository.CategoryRepository;
+import com.norbi.gocze.restaurant.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +16,10 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:3000", "https://random-takeaway.netlify.app"})
 @RequiredArgsConstructor
 public class CategoryController {
-    private final CategoryRepository categoryRepository;
+    private final CategoryService categoryService;
 
     @GetMapping("/all")
     public List<Category> getCategories() {
-        return categoryRepository.findAll();
+        return categoryService.getAllCategories();
     }
 }

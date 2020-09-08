@@ -3,7 +3,6 @@ package com.norbi.gocze.restaurant.controller;
 import com.norbi.gocze.restaurant.entity.Menu;
 import com.norbi.gocze.restaurant.service.MenuService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +22,6 @@ public class MenuController {
 
     @GetMapping("/get-by-category/{id}")
     public List<Menu> getMenuWhereCategoryMatches(@PathVariable("id") Long id) {
-        return menuService.getItemsWhereIdMatcher(id);
+        return menuService.getItemsWhereIdMatches(id);
     }
 }
