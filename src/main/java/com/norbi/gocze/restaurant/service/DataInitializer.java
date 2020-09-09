@@ -20,6 +20,10 @@ public class DataInitializer {
         Category pork = Category.builder().name("Pork").build();
         Category chicken = Category.builder().name("Chicken").build();
         Category beef = Category.builder().name("Beef").build();
+        Category pizza = Category.builder().name("Pizza").build();
+        Category dessert = Category.builder().name("Dessert").build();
+
+
 
         Menu cordonBleu = Menu.builder().name("Cordon Bleu with Fries")
                 .picture("https://i.imgur.com/Z8fHDAH.jpeg")
@@ -135,7 +139,87 @@ public class DataInitializer {
                 .category(beef)
                 .build();
 
+        Menu veggie = Menu.builder().name("Veggie Pizza")
+                .picture("https://i.imgur.com/ifBStZK.jpg")
+                .price(2000L)
+                .category(pizza)
+                .build();
+        Menu pepperoni = Menu.builder().name("Pepperoni Pizza")
+                .picture("https://i.imgur.com/ifBStZK.jpg")
+                .price(2200L)
+                .category(pizza)
+                .build();
+        Menu margherita = Menu.builder().name("Margherita Pizza")
+                .picture("https://i.imgur.com/dfGayRK.jpg")
+                .price(2150L)
+                .category(pizza)
+                .build();
+        Menu bbqPizza = Menu.builder().name("BBQ Chicken Pizza")
+                .picture("https://i.imgur.com/f0EEsVI.jpg")
+                .price(2400L)
+                .category(pizza)
+                .build();
+        Menu suprema = Menu.builder().name("Suprema Pizza")
+                .picture("https://i.imgur.com/GNG0k9C.jpg")
+                .price(2800L)
+                .category(pizza)
+                .build();
 
+        Menu chocolateChip = Menu.builder().name("Chocolate Chip Cookie Delight")
+                .picture("https://i.imgur.com/Fb3sAB8.jpg")
+                .price(1400L)
+                .category(dessert)
+                .build();
+        Menu cheeseCake = Menu.builder().name("Chocolate Chip Cannoli Cheesecake")
+                .picture("https://i.imgur.com/176wkSl.jpg")
+                .price(1500L)
+                .category(dessert)
+                .build();
+        Menu fondue = Menu.builder().name("Chocolate Pecan Fondue")
+                .picture("https://i.imgur.com/0WnEoSt.jpg")
+                .price(1800L)
+                .category(dessert)
+                .build();
+        Menu friedIce = Menu.builder().name("Fried Ice Cream Dessert Bars")
+                .picture("https://i.imgur.com/BePabmQ.jpg")
+                .price(800L)
+                .category(dessert)
+                .build();
+        Menu wyoming = Menu.builder().name("Wyoming Cowboy Cookies")
+                .picture("https://i.imgur.com/r11Ti9g.jpg")
+                .price(1200L)
+                .category(dessert)
+                .build();
+        Menu peachPie = Menu.builder().name("Peach Pie")
+                .picture("https://i.imgur.com/nbE5dYs.jpg")
+                .price(650L)
+                .category(dessert)
+                .build();
+        Menu apple = Menu.builder().name("Apple Spice Cake with Brown Sugar Frosting")
+                .picture("https://i.imgur.com/qRLM7ty.jpg")
+                .price(650L)
+                .category(dessert)
+                .build();
+        Menu mudCake = Menu.builder().name("Mississippi Mud Cake")
+                .picture("https://i.imgur.com/8BUfDHU.jpg")
+                .price(890L)
+                .category(dessert)
+                .build();
+        Menu cupcake = Menu.builder().name("Chocolate Ganache Peanut Butter Cupcakes")
+                .picture("https://i.imgur.com/iPlLXP3.jpg")
+                .price(690L)
+                .category(dessert)
+                .build();
+        Menu mintCake = Menu.builder().name("Mint Chocolate Cheesecake")
+                .picture("https://i.imgur.com/Y5c6vMU.jpg")
+                .price(990L)
+                .category(dessert)
+                .build();
+        Menu peanutButterPudding = Menu.builder().name("Peanut Butter Pudding Dessert")
+                .picture("https://i.imgur.com/RhtyhGr.jpg")
+                .price(950L)
+                .category(dessert)
+                .build();
 
 
 
@@ -151,12 +235,21 @@ public class DataInitializer {
         beef.setMenu(Arrays.asList(beefCheddar, cowboyNachos, potRoast, teriyaki, ribs, brisket,
                                    goulash, steak));
 
-        categoryRepository.saveAll(Arrays.asList(pork, chicken, beef)); // Important note: save category first
+        pizza.setMenu(Arrays.asList(veggie, pepperoni, margherita, bbqPizza, suprema));
+
+        dessert.setMenu(Arrays.asList(chocolateChip, cheeseCake, fondue, friedIce, wyoming,
+                                      peachPie, apple, mudCake, cupcake, mintCake, peanutButterPudding));
+
+        // Important note: save category first
+        categoryRepository.saveAll(Arrays.asList(pork, chicken, beef, pizza, dessert));
 
         menuRepository.saveAll(Arrays.asList(cordonBleu, friedSteak, friedChicken, newOrleansPork,
                                             sriracha, dijon, vietnamese_noodle_salad, grilledPork,
                                             fontina, alfredo, glazedChicken, bbqChicken, chickenSandwich,
                                             ginger, beefCheddar, cowboyNachos, potRoast, teriyaki,
-                                            ribs, brisket, goulash, steak));
+                                            ribs, brisket, goulash, steak, pepperoni, veggie, margherita,
+                                            bbqPizza, suprema, chocolateChip, cheeseCake, fondue,
+                                            friedIce, wyoming, peachPie, apple, mudCake, cupcake,
+                                            mintCake, peanutButterPudding));
     }
 }
