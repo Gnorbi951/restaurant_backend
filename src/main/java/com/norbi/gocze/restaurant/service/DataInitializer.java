@@ -19,6 +19,7 @@ public class DataInitializer {
     public void fillDataBase() {
         Category pork = Category.builder().name("Pork").build();
         Category chicken = Category.builder().name("Chicken").build();
+        Category beef = Category.builder().name("Beef").build();
 
         Menu cordonBleu = Menu.builder().name("Cordon Bleu with Fries")
                 .picture("https://i.imgur.com/Z8fHDAH.jpeg")
@@ -93,6 +94,51 @@ public class DataInitializer {
                 .category(chicken)
                 .build();
 
+        Menu beefCheddar = Menu.builder().name("Beef and Cheddar Casserole")
+                .picture("https://i.imgur.com/1nOVlF2.jpg")
+                .price(3300L)
+                .category(beef)
+                .build();
+        Menu cowboyNachos = Menu.builder().name("Cowboy Nachos")
+                .picture("https://i.imgur.com/MQ8TyJw.jpg")
+                .price(3000L)
+                .category(beef)
+                .build();
+        Menu potRoast = Menu.builder().name("Beef and Potatoes Pot Roast")
+                .picture("https://i.imgur.com/ZZ0Ro4g.jpg")
+                .price(3800L)
+                .category(beef)
+                .build();
+        Menu teriyaki = Menu.builder().name("Teriyaki Beef Stir-Fry")
+                .picture("https://i.imgur.com/yOCHTv2.jpg")
+                .price(4200L)
+                .category(beef)
+                .build();
+        Menu ribs = Menu.builder().name("Braised Beef Short Ribs")
+                .picture("https://i.imgur.com/9cIDzq6.jpg")
+                .price(4100L)
+                .category(beef)
+                .build();
+        Menu brisket = Menu.builder().name("Smoked Beef Brisket")
+                .picture("https://i.imgur.com/h7Qd3tB.jpg")
+                .price(4100L)
+                .category(beef)
+                .build();
+        Menu goulash = Menu.builder().name("Hungarian Goulash with Spaetzle")
+                .picture("https://i.imgur.com/zBxIjey.jpg")
+                .price(4450L)
+                .category(beef)
+                .build();
+        Menu steak = Menu.builder().name("Ancho steak & chimichurri buttered sweetcorn")
+                .picture("https://i.imgur.com/BROfUOu.jpg")
+                .price(4700L)
+                .category(beef)
+                .build();
+
+
+
+
+
 
 
 
@@ -102,11 +148,15 @@ public class DataInitializer {
         chicken.setMenu(Arrays.asList(friedChicken, fontina, alfredo, glazedChicken, bbqChicken,
                                       chickenSandwich, ginger));
 
-        categoryRepository.saveAll(Arrays.asList(pork, chicken)); // Important note: save category first
+        beef.setMenu(Arrays.asList(beefCheddar, cowboyNachos, potRoast, teriyaki, ribs, brisket,
+                                   goulash, steak));
+
+        categoryRepository.saveAll(Arrays.asList(pork, chicken, beef)); // Important note: save category first
 
         menuRepository.saveAll(Arrays.asList(cordonBleu, friedSteak, friedChicken, newOrleansPork,
                                             sriracha, dijon, vietnamese_noodle_salad, grilledPork,
                                             fontina, alfredo, glazedChicken, bbqChicken, chickenSandwich,
-                                            ginger));
+                                            ginger, beefCheddar, cowboyNachos, potRoast, teriyaki,
+                                            ribs, brisket, goulash, steak));
     }
 }
