@@ -51,7 +51,7 @@ public class DataInitializer {
                 .price(1800L)
                 .category(pork)
                 .build();
-        Menu girrledPork = Menu.builder().name("Grilled Pork Scaloppine with Mango Salsa")
+        Menu grilledPork = Menu.builder().name("Grilled Pork Scaloppine with Mango Salsa")
                 .picture("https://i.imgur.com/EWyPGk5.jpg")
                 .price(2780L)
                 .category(pork)
@@ -65,13 +65,13 @@ public class DataInitializer {
                 .build();
 
         pork.setMenu(Arrays.asList(cordonBleu, friedSteak, newOrleansPork, sriracha, dijon,
-                                    vietnamese_noodle_salad, girrledPork));
+                                    vietnamese_noodle_salad, grilledPork));
 
         chicken.setMenu(Collections.singletonList(friedChicken));
 
         categoryRepository.saveAll(Arrays.asList(pork, chicken)); // Important note: save category first
 
         menuRepository.saveAll(Arrays.asList(cordonBleu, friedSteak, friedChicken, newOrleansPork,
-                                            sriracha, dijon, vietnamese_noodle_salad, girrledPork));
+                                            sriracha, dijon, vietnamese_noodle_salad, grilledPork));
     }
 }
