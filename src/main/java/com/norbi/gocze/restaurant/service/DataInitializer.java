@@ -51,12 +51,12 @@ public class DataInitializer {
                 .category(pork)
                 .build();
         Menu vietnamese_noodle_salad = Menu.builder().name("Vietnamese Noodle Salad")
-                .picture("https://i.imgur.com/EWyPGk5.jpg")
+                .picture("https://i.imgur.com/MYKvs2w.jpg")
                 .price(1800L)
                 .category(pork)
                 .build();
         Menu grilledPork = Menu.builder().name("Grilled Pork Scaloppine with Mango Salsa")
-                .picture("https://i.imgur.com/EWyPGk5.jpg")
+                .picture("https://i.imgur.com/BbHbdfZ.jpg")
                 .price(2780L)
                 .category(pork)
                 .build();
@@ -145,7 +145,7 @@ public class DataInitializer {
                 .category(pizza)
                 .build();
         Menu pepperoni = Menu.builder().name("Pepperoni Pizza")
-                .picture("https://i.imgur.com/ifBStZK.jpg")
+                .picture("https://i.imgur.com/eqY0LlW.jpg")
                 .price(2200L)
                 .category(pizza)
                 .build();
