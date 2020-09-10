@@ -36,17 +36,17 @@ public class DataInitializer {
                 .category(pork)
                 .build();
         Menu newOrleansPork = Menu.builder().name("New Orleans Pork and Charred Beans")
-                .picture("https://i.imgur.com/kywAM4n.jpg")
+                .picture("https://i.imgur.com/kywAM4n.jpg?1")
                 .price(3200L)
                 .category(pork)
                 .build();
         Menu sriracha = Menu.builder().name("Sriracha Meatball Hoagies")
-                .picture("https://i.imgur.com/DulU26k.jpg")
+                .picture("https://i.imgur.com/DulU26k.jpg?1")
                 .price(2350L)
                 .category(pork)
                 .build();
         Menu dijon = Menu.builder().name("Dijon Pork and Asparagus Sauté")
-                .picture("https://i.imgur.com/EWyPGk5.jpg")
+                .picture("https://i.imgur.com/EWyPGk5.jpg?1")
                 .price(3600L)
                 .category(pork)
                 .build();
@@ -56,7 +56,7 @@ public class DataInitializer {
                 .category(pork)
                 .build();
         Menu grilledPork = Menu.builder().name("Grilled Pork Scaloppine with Mango Salsa")
-                .picture("https://i.imgur.com/BbHbdfZ.jpg")
+                .picture("https://i.imgur.com/BbHbdfZ.jpg?1")
                 .price(2780L)
                 .category(pork)
                 .build();
@@ -129,7 +129,7 @@ public class DataInitializer {
                 .category(beef)
                 .build();
         Menu goulash = Menu.builder().name("Hungarian Goulash with Spaetzle")
-                .picture("https://i.imgur.com/zBxIjey.jpg")
+                .picture("https://i.imgur.com/zBxIjey.jpg?1")
                 .price(4450L)
                 .category(beef)
                 .build();
