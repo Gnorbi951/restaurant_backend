@@ -6,12 +6,12 @@ import com.norbi.gocze.restaurant.model.Role;
 import com.norbi.gocze.restaurant.repository.CategoryRepository;
 import com.norbi.gocze.restaurant.repository.MenuRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.Arrays;
 import java.util.Set;
 
-@Service
+@Configuration
 @AllArgsConstructor
 public class DataInitializer {
 
