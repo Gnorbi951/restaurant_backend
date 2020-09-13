@@ -47,7 +47,7 @@ public class AuthenticationController {
     private void addTokenToCookie(HttpServletResponse response, String token) {
         ResponseCookie cookie = ResponseCookie.from("token", token)
                 //.domain("random-takeaway.netlify.app") // should be parameterized
-                .sameSite("Strict")  // CSRF
+                .sameSite("cross-site")  // CSRF // Changed from "Strict" to "cross-site"
 //                .secure(true)
                 .maxAge(Duration.ofHours(24))
                 .httpOnly(true)      // XSS
