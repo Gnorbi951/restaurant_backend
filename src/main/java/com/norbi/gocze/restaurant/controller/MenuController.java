@@ -9,7 +9,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/menu")
-@CrossOrigin(origins = {"http://localhost:3000", "https://random-takeaway.netlify.app"})
 @RequiredArgsConstructor
 public class MenuController {
 

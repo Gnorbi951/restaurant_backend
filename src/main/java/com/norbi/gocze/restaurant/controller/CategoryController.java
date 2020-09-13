@@ -12,7 +12,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/category")
-@CrossOrigin(origins = {"http://localhost:3000", "https://random-takeaway.netlify.app"})
 @RequiredArgsConstructor
 public class CategoryController {
     private final CategoryService categoryService;
