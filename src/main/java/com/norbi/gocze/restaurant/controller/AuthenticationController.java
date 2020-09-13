@@ -46,7 +46,7 @@ public class AuthenticationController {
 
     private void addTokenToCookie(HttpServletResponse response, String token) {
         ResponseCookie cookie = ResponseCookie.from("token", token)
-                .domain("localhost") // should be parameterized
+                .domain("damp-atoll-23585.herokuapp.com") // should be parameterized
                 .sameSite("Strict")  // CSRF
 //                .secure(true)
                 .maxAge(Duration.ofHours(24))
