@@ -43,7 +43,7 @@ public class AuthenticationController {
 
     private void addTokenToCookie(HttpServletResponse response, String token) {
         ResponseCookie cookie = ResponseCookie.from("token", token)
-                .domain("netlify") // should be parameterized
+                //.domain("") // should be parameterized
                 .sameSite("None")  // CSRF
                 .secure(true)
                 .maxAge(Duration.ofHours(24))
