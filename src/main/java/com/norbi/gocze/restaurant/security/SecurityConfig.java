@@ -60,9 +60,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/auth/**", "/menu/**", "/category/**").permitAll()
                 //.antMatchers("/implement_admin").hasRole("ADMIN")
                 .anyRequest().authenticated();
-        http.headers()
-                .referrerPolicy(ReferrerPolicyHeaderWriter.ReferrerPolicy.ORIGIN);
-
     }
 
     @Bean
