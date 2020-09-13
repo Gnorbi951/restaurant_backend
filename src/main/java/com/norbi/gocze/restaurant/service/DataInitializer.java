@@ -2,21 +2,27 @@ package com.norbi.gocze.restaurant.service;
 
 import com.norbi.gocze.restaurant.entity.Category;
 import com.norbi.gocze.restaurant.entity.Menu;
+import com.norbi.gocze.restaurant.model.Role;
 import com.norbi.gocze.restaurant.repository.CategoryRepository;
 import com.norbi.gocze.restaurant.repository.MenuRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.Arrays;
+import java.util.Set;
 
-@Service
+@Configuration
 @AllArgsConstructor
 public class DataInitializer {
 
     private final MenuRepository menuRepository;
     private final CategoryRepository categoryRepository;
+    private final UserService userService;
 
     public void fillDataBase() {
+
+        initializeUsers();
+
         Category pork = Category.builder().name("Pork").build();
         Category chicken = Category.builder().name("Chicken").build();
         Category beef = Category.builder().name("Beef").build();
@@ -251,5 +257,10 @@ public class DataInitializer {
                                             bbqPizza, suprema, chocolateChip, cheeseCake, fondue,
                                             friedIce, wyoming, peachPie, apple, mudCake, cupcake,
                                             mintCake, peanutButterPudding));
+    }
+
+    private void initializeUsers() {
+        userService.register("admin", "admin", Set.of(Role.USER, Role.ADMIN));
+        userService.register("user", "user");
     }
 }
