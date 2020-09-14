@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -27,33 +29,22 @@ public class AuthenticationController {
     private final JwtUtil jwtUtil;
     private final UserService userService;
 
+    // I have refactored this part to only send a token and react library processces the token
+    // to a cookie, because heroku and netlify don't like to communicate that way
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody UserCredentials secuUser, HttpServletResponse response) {
+    public ResponseEntity<List<String>> login(@RequestBody UserCredentials secuUser, HttpServletResponse response) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 secuUser.getUsername(),
                 secuUser.getPassword()
         ));
         String jwtToken = jwtUtil.generateToken(authentication);
-        addTokenToCookie(response, jwtToken);
-        return ResponseEntity.ok().body(secuUser.getUsername());
+        return ResponseEntity.ok().body(Arrays.asList(secuUser.getUsername(), jwtToken));
     }
 
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody UserCredentials secuUser) {
         userService.register(secuUser);
         return ResponseEntity.status(HttpStatus.CREATED).body(secuUser.getUsername());
-    }
-
-    private void addTokenToCookie(HttpServletResponse response, String token) {
-        ResponseCookie cookie = ResponseCookie.from("token", token)
-                .domain("random-takeaway.netlify.app") // should be parameterized
-                .sameSite("Strict")  // CSRF
-//                .secure(true)
-                .maxAge(Duration.ofHours(24))
-                .httpOnly(true)      // XSS
-                .path("/")
-                .build();
-        response.addHeader("Set-Cookie", cookie.toString());
     }
 
 }
