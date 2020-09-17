@@ -25,12 +25,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        Optional<Cookie> jwtToken =
-                Arrays.stream(Optional.ofNullable(request.getCookies()).orElse(new Cookie[]{}))
-                        .filter(cookie -> cookie.getName().equals(TOKEN))
-                        .findFirst();
-        if (jwtToken.isPresent()) {
-            UsernamePasswordAuthenticationToken userToken = jwtUtil.validateTokenAndExtractUserSpringToken(jwtToken.get().getValue());
+        String jwtToken = request.getHeader("Authorization");
+        if (!jwtToken.equals("undefined")) {
+            UsernamePasswordAuthenticationToken userToken = jwtUtil.validateTokenAndExtractUserSpringToken(jwtToken);
 
             SecurityContextHolder.getContext().setAuthentication(userToken);
 
