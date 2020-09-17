@@ -41,6 +41,6 @@ public class AuthenticationController {
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody UserCredentials secuUser) {
         userService.register(secuUser);
-        return ResponseEntity.status(HttpStatus.CREATED).body(secuUser.getUsername());
+        return ResponseEntity.status(HttpStatus.CREATED).body("Successful registration");
     }
 }
